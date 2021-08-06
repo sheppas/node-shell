@@ -18,10 +18,10 @@ process.stdin.on("data", (data) => {
     ls(done);
   } else if (cmd.split(" ")[0] === "cat") {
     let cat = require("./cat");
-    cat(cmd.split(" ").slice(1));
+    cat(cmd.split(" ").slice(1), done);
   } else if (cmd.split(" ")[0] === "curl") {
     let curl = require("./curl");
-    curl(cmd.split(" ")[1]);
+    curl(cmd.split(" ")[1], done);
   } else {
     process.stdout.write("You typed: " + cmd);
   }

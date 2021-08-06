@@ -1,12 +1,12 @@
 const request = require('request');
 
-const curl = (url) => {
+const curl = (url, done) => {
   request(url, function (err, response, body) {
     if (err) {
-      throw err;
+      done('something went wrong!');
     }
-    process.stdout.write(response);
-    process.stdout.write(body);
+    done(response);
+    done(body);
   })
 }
 
