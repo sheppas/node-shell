@@ -1,5 +1,4 @@
-module.exports = () => {
+module.exports = (done) => {
   const directory = process.cwd();
-  process.stdout.write(`${directory}`);
-  process.stdin.write("\nprompt > ");
+  done(`${directory}`);
 };

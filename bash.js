@@ -1,3 +1,10 @@
+const done = (output) => {
+  process.stdout.write(output);
+  process.stdout.write("prompt >");
+ }
+
+
+
 process.stdout.write("prompt >");
 
 process.stdin.on("data", (data) => {
@@ -5,10 +12,10 @@ process.stdin.on("data", (data) => {
 
   if (cmd === "pwd") {
     let pwd = require("./pwd");
-    pwd();
+    pwd(done);
   } else if (cmd === "ls") {
     let ls = require("./ls");
-    ls();
+    ls(done);
   } else if (cmd.split(" ")[0] === "cat") {
     let cat = require("./cat");
     cat(cmd.split(" ").slice(1));
